@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/swoosh/static/css/main.951960ae.chunk.css",
+    "main.js": "/swoosh/static/js/main.cf3bcf48.chunk.js",
+    "main.js.map": "/swoosh/static/js/main.cf3bcf48.chunk.js.map",
+    "runtime-main.js": "/swoosh/static/js/runtime-main.c84a9f59.js",
+    "runtime-main.js.map": "/swoosh/static/js/runtime-main.c84a9f59.js.map",
+    "static/js/2.8407fd4d.chunk.js": "/swoosh/static/js/2.8407fd4d.chunk.js",
+    "static/js/2.8407fd4d.chunk.js.map": "/swoosh/static/js/2.8407fd4d.chunk.js.map",
+    "index.html": "/swoosh/index.html",
+    "static/css/main.951960ae.chunk.css.map": "/swoosh/static/css/main.951960ae.chunk.css.map",
+    "static/js/2.8407fd4d.chunk.js.LICENSE.txt": "/swoosh/static/js/2.8407fd4d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c84a9f59.js",
+    "static/js/2.8407fd4d.chunk.js",
+    "static/css/main.951960ae.chunk.css",
+    "static/js/main.cf3bcf48.chunk.js"
+  ]
+}
