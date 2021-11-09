@@ -48,7 +48,6 @@ input[type="file"]::file-selector-button:hover {
   color: #fff !important;
 }
 .manual {
-  display: flex;
   padding: 50px;
   justify-content: center;
 }

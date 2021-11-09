@@ -1,55 +1,86 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import "./Upload.css";
 import MyDropzone from "./Dropbox";
 import axios from "axios";
-class Upload extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedFile: null,
-    };
-  }
-  onChangeHandler = (event) => {
-    this.setState({
-      selectedFile: event.target.files[0],
-      loaded: 0,
-    });
+import { initObject } from "../initObject";
+
+const Upload = () => {
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [data, setData] = useState({});
+  const [active, setActive] = useState(false);
+
+  const onChangeHandler = (event) => {
+    let file = event.target.files[0];
+    setSelectedFile(file);
     console.log(event.target.files[0]);
   };
-  onClickHandler = () => {
+
+  const onClickHandler = () => {
     const data = new FormData();
-    data.append("file", this.state.selectedFile);
+    console.log("myformdata", data);
+    data.append("file", selectedFile);
+
     axios
-      .post("http://localhost:8000/upload", data, {
+      .post("http://localhost:8000/", data, {
         // receive two parameter endpoint url ,form data
       })
       .then((res) => {
-        // then print response status
         console.log(res.statusText);
       });
   };
-  render() {
-    return (
-      <>
-        <section>
-          <h1>Swoosh</h1>
-          <div className="container">
-            <React.Fragment>
-              <MyDropzone />
-            </React.Fragment>
-          </div>
-          <div className="manual">
+  const getLink = async () => {
+    try {
+      const res = await axios.get(`${initObject.url}/api/myfilern/samplee`);
+      if (res.status === 200) {
+        setData(res.data);
+        setActive(true);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  return (
+    <>
+      <section>
+        <h1>Swoosh</h1>
+        <div className="container">
+          <React.Fragment>
+            <MyDropzone />
+          </React.Fragment>
+        </div>
+        <div className="manual">
+          {active ? (
             <div>
-              <input type="file" name="file" onChange={this.onChangeHandler} />
+              <a href="#">{data.download}</a>
             </div>
-            <button className="mybtn" onClick={this.onClickHandler}>
-              Submit
-            </button>
-          </div>
-        </section>
-      </>
-    );
-  }
-}
+          ) : null}
+          <form action="/" method="post" encType="multipart/form-data">
+            <div style={{ display: "flex" }}>
+              <div>
+                <input
+                  type="file"
+                  name="file"
+                  id="file"
+                  onChange={onChangeHandler}
+                />
+              </div>
+              <br />
+              <button
+                className="mybtn"
+                onClick={(e) => {
+                  onClickHandler();
+                  getLink();
+                  e.preventDefault();
+                }}
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </>
+  );
+};
 
 export default Upload;
