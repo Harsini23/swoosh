@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
 .minion {
   position: absolute;
   top: calc(48% - (250px / 2));
   left: calc(50% - (140px / 2));
   width: 140px;
+  z-index: 0;
 }
 .minion * {
   position: absolute;
@@ -106,18 +106,8 @@
   height: 30px;
   border-radius: 50%;
   background: #000;
-  border: 10px solid #94663c;
+  border: 10px solid #ac7440;
   box-sizing: border-box;
-}
-.minion .goggle-shadow {
-  height: 75px;
-  top: 45px;
-  border-radius: 50%;
-  background-image: radial-gradient(
-    rgba(0, 0, 0, 0.8) 0%,
-    rgba(0, 0, 0, 0) 50%
-  );
-  z-index: 5;
 }
 .minion .mouth {
   top: 110px;
@@ -132,26 +122,23 @@
   z-index: 5;
   box-shadow: inset 0 -1px 2px -1px rgba(0, 0, 0, 0.3);
 }
-
-.dropbox {
-  color: rgb(0, 0, 0);
-  font: 1em sans-serif;
-  background-size: cover;
-  height: 240px;
-  width: 500px;
-  border-radius: 20px;
+.minion .goggle-shadow {
+  height: 75px;
+  top: 45px;
+  border-radius: 50%;
+  background-image: radial-gradient(
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0) 50%
+  );
+  z-index: 5;
 }
 .dropbox {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  height: 205px;
 }
 p {
-  text-align: center;
+  font-family: "Zen Loop", cursive;
   font-size: 25px;
-  justify-content: center;
-  font-family: "Dancing Script", cursive;
-  padding: 20px;
+  text-align: center;
 }
 .filename {
   height: 20px;

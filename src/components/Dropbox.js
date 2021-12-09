@@ -1,7 +1,6 @@
 import React from "react";
 import { useDropzone } from "react-dropzone";
 import "./Dropbox.css";
-
 document.querySelector("body").addEventListener("mousemove", eyeball);
 function eyeball(event) {
   const eye = document.querySelectorAll(".eye");
@@ -14,15 +13,41 @@ function eyeball(event) {
   });
 }
 
-function MyDropzone() {
+function MyDropzone({
+  setfileSelect,
+  selectedFile,
+  setSelectedFile,
+  fileClear,
+  setFileClear,
+  showProps,
+}) {
+  let disabled;
+  if (showProps === false) {
+    disabled = "disabled:true";
+  }
   const { acceptedFiles, getRootProps, getInputProps, isDragActive } =
-    useDropzone();
-  const files = acceptedFiles.map((file) => (
-    <li key={file.path}>
-      {file.path}-{(file.size / 1000000).toPrecision(2)} MB
+    useDropzone({ multiple: false, disabled });
+  let myFile = acceptedFiles.length > 0 ? acceptedFiles[0] : selectedFile;
+  if (acceptedFiles.length > 0) {
+    setSelectedFile(acceptedFiles[0]);
+    setfileSelect(true);
+  }
+  if (fileClear === true) {
+    acceptedFiles.pop();
+    setSelectedFile(null);
+    setfileSelect(false);
+  }
+  const files = myFile ? (
+    <li key={myFile?.path || myFile?.name}>
+      {myFile?.path || myFile?.name}-{(myFile?.size / 1000000).toPrecision(2)}{" "}
+      MB
     </li>
-  ));
-
+  ) : (
+    <li>No files chosen</li>
+  );
+  if (acceptedFiles.length === 0) {
+    setFileClear(false);
+  }
   return (
     <section>
       <div className="dropbox" {...getRootProps()}>
@@ -30,9 +55,14 @@ function MyDropzone() {
         {isDragActive ? (
           <p>Drop the files here ...</p>
         ) : (
-          <p>Drag 'n' drop some files here, or click to select files</p>
+          <div>
+            {showProps ? (
+              <p>Drag 'n' drop some files here, or click to select files</p>
+            ) : (
+              <p>Thank you! Have a great day ;)</p>
+            )}
+          </div>
         )}
-
         <div>
           <div className="minion">
             <div className="goggle-strap left"></div>
@@ -53,7 +83,7 @@ function MyDropzone() {
           </div>
         </div>
       </div>
-      <div className="filename">{files}</div>
+      {showProps ? <div className="filename">{files}</div> : null}
     </section>
   );
 }
