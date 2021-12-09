@@ -1,0 +1,175 @@
+body {
+  box-sizing: border-box;
+}
+.download-page {
+  display: flex;
+}
+.download-page-container {
+  margin: 0;
+  padding: 0;
+}
+.download-page-container .main-card-container {
+  height: 340px;
+  width: 430px;
+  background-color: #ffd68a;
+  box-shadow: 10px 14px 18px 10px rgb(0 0 0 / 20%);
+  border-radius: 35px;
+}
+.download-page-container .main-card-container .card-header {
+  height: 30%;
+  width: 100%;
+  display: flex;
+}
+.card-heading-icon {
+  position: relative;
+  width: 30%;
+  top: 20px;
+  left: 5px;
+}
+.file-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 15px;
+}
+.download-page-container .main-card-container .card-header .card-heading {
+  font-family: "Caveat", cursive;
+  padding: 10px;
+  font-weight: bolder;
+  font-size: 33px;
+  text-align: unset;
+  width: 70%;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.card-title {
+  text-align: center;
+  padding: 10px;
+  color: #004992;
+  font-family: "Caveat", cursive;
+  font-weight: bolder;
+  font-size: xx-large;
+}
+.download-page-container .main-card-container .card-body {
+  height: 70%;
+  width: 100%;
+  display: flex;
+}
+.download-page-container
+  .main-card-container
+  .card-body
+  .file-details-container {
+  height: 100%;
+  width: 100%;
+  margin-top: 15px;
+}
+.download-page-container
+  .main-card-container
+  .card-body
+  .file-details-container
+  .file-details {
+  width: 100%;
+  height: 100%;
+}
+.download-page-container
+  .main-card-container
+  .card-body
+  .file-details-container
+  .file-details
+  .file-items {
+  display: flex;
+  margin-left: 35px;
+  padding: 5px;
+}
+.additional {
+  margin-left: 4px;
+}
+
+.download-area {
+  height: 250px;
+  margin-left: 20px;
+}
+.download-area .download-header {
+  width: 700px;
+}
+.download-area .download-header p {
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: 0.1rem;
+}
+.download-area .download-avail {
+  height: 300px;
+  width: 700px;
+}
+.download-button .mybtn {
+  background: #0f2027; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  width: 140px;
+  margin-left: 280px;
+  margin-top: 20px;
+}
+.download-button .mybtn:hover {
+  background: #0f2027; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.download-message {
+  width: 250px;
+  margin-top: 10px;
+  margin-left: 223px;
+}
+.count-down-bottom {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+}
+.time-bottom-1 {
+  position: absolute;
+  left: 20px;
+}
+.time-bottom-2 {
+  position: absolute;
+  left: 98px;
+}
+.time-bottom-3 {
+  position: absolute;
+  left: 196px;
+}
+.time-bottom-4 {
+  position: absolute;
+  right: 147px;
+}
+.time-header {
+  font-weight: bolder;
+  letter-spacing: 0.08rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.count-down-header {
+  display: flex;
+  justify-content: right;
+  margin-top: 23px;
+  margin-right: 55px;
+}
